@@ -15,7 +15,7 @@ public class ProcessProperties {
 
 	private HashMap<String, String> properties;
 
-	public HashMap<String, String> getProperties(String fileName) throws PropertyException, IOException {
+	public HashMap<String, String> getProperties(final String fileName) throws PropertyException, IOException {
 		properties = new HashMap<String, String>();
 		try (InputStream input = getClass().getClassLoader().getResourceAsStream(fileName)) {
 			Properties prop = new Properties();
@@ -23,7 +23,7 @@ public class ProcessProperties {
 				new PropertyException("Unable to locate file: " + fileName);
 			}
 			prop.load(input);
-			for (final String name : prop.stringPropertyNames()) {
+			for (String name : prop.stringPropertyNames()) {
 				properties.put(name, prop.getProperty(name));
 			}
 		}
