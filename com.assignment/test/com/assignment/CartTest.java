@@ -31,6 +31,7 @@ class CartTest {
 	@Test
 	final void testGetCartItemsPostive() {
 		assertEquals(3, cart.getCartItems().size());
+		assertEquals('A', cart.getCartItems().get(0));
 	}
 
 	@Test
