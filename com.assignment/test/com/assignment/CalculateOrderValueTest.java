@@ -35,24 +35,37 @@ class CalculateOrderValueTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		i1 = new CartItem(1, 'A');
-		i2 = new CartItem(1, 'B');
-		i3 = new CartItem(1, 'C');
 		items = new ArrayList<CartItem>();
-		items.add(i1);
-		items.add(i2);
-		items.add(i3);
-		cart=  new Cart();
-		cart.setCart(items);
+		cart = new Cart();
 		ProcessProperties properties = new ProcessProperties();
 		processPro = new ProcessActivePromotions(properties);
 		inventory = new Inventory(properties);
-		calculateOrderValue = new CalculateOrderValue(cart, processPro, inventory);
 	}
 
 	@Test
 	final void test() throws PropertyException, IOException {
+		i1 = new CartItem(1, 'A');
+		i2 = new CartItem(1, 'B');
+		i3 = new CartItem(1, 'C');
+		items.add(i1);
+		items.add(i2);
+		items.add(i3);
+		cart.setCart(items);
+		calculateOrderValue = new CalculateOrderValue(cart, processPro, inventory);
 		assertEquals(100, calculateOrderValue.getOrderValue());
+	}
+	@Test
+	final void test2() throws PropertyException, IOException {
+		i1 = new CartItem(5, 'A');
+		i2 = new CartItem(5, 'B');
+		i3 = new CartItem(1, 'C');
+		items.add(i1);
+		items.add(i2);
+		items.add(i3);
+		cart = new Cart();
+		cart.setCart(items);
+		calculateOrderValue = new CalculateOrderValue(cart, processPro, inventory);
+		assertEquals(370, calculateOrderValue.getOrderValue());
 	}
 
 }
