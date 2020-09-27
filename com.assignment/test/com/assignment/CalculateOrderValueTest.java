@@ -55,6 +55,7 @@ class CalculateOrderValueTest {
 		calculateOrderValue = new CalculateOrderValue(cart, processPro, inventory);
 		assertEquals(100, calculateOrderValue.getOrderValue());
 	}
+
 	@Test
 	final void test2() throws PropertyException, IOException {
 		i1 = new CartItem(5, 'A');
@@ -68,6 +69,7 @@ class CalculateOrderValueTest {
 		calculateOrderValue = new CalculateOrderValue(cart, processPro, inventory);
 		assertEquals(370, calculateOrderValue.getOrderValue());
 	}
+
 	@Test
 	final void test3() throws PropertyException, IOException {
 		i1 = new CartItem(3, 'A');

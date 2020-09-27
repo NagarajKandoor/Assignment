@@ -39,7 +39,7 @@ public class CalculateOrderValue {
 					orderValue += calculate(ct.getQuntity(),
 							Integer.valueOf(stockPrice.get(ct.getProductName().toString())), activePromotion,
 							ct.getProductName().toString());
-				} 
+				}
 			}
 			orderValue += getPromotionValue(activePromotion);
 
@@ -77,9 +77,6 @@ public class CalculateOrderValue {
 	}
 
 	public static int calculate(int quantity, int price, List<Promotion> activePromotion, String pdName) {
-		if (quantity == 0) {
-			return 0;
-		}
 		return applyPromotion(activePromotion, quantity, price, pdName);
 	}
 
