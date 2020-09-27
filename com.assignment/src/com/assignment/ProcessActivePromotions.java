@@ -43,7 +43,7 @@ public class ProcessActivePromotions {
 	}
 
 	public static Promotion promotionFactory(String productName, int promotionValue, int quantity) {
-		Promotion activePro = new Promotion(productName, promotionValue, quantity);
+		Promotion activePro = new Promotion(productName.replace("'s", ""), promotionValue, quantity);
 		return activePro;
 	}
 }

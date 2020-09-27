@@ -30,6 +30,7 @@ class CalculateOrderValueTest {
 	private CartItem i1;
 	private CartItem i2;
 	private CartItem i3;
+	private CartItem i4;
 	private Cart cart;
 	private List<CartItem> items;
 
@@ -66,6 +67,21 @@ class CalculateOrderValueTest {
 		cart.setCart(items);
 		calculateOrderValue = new CalculateOrderValue(cart, processPro, inventory);
 		assertEquals(370, calculateOrderValue.getOrderValue());
+	}
+	@Test
+	final void test3() throws PropertyException, IOException {
+		i1 = new CartItem(3, 'A');
+		i2 = new CartItem(5, 'B');
+		i3 = new CartItem(1, 'C');
+		i4 = new CartItem(1, 'D');
+		items.add(i1);
+		items.add(i2);
+		items.add(i3);
+		items.add(i4);
+		cart = new Cart();
+		cart.setCart(items);
+		calculateOrderValue = new CalculateOrderValue(cart, processPro, inventory);
+		assertEquals(280, calculateOrderValue.getOrderValue());
 	}
 
 }
