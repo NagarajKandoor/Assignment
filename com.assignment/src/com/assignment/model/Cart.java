@@ -7,20 +7,21 @@ import java.util.List;
  *
  */
 public class Cart {
-	
-	private List<Character> cartItems;
+
+	private List<CartItem> cart;
 
 	/**
-	 * @return the cartItems
+	 * @return the cart
 	 */
-	public List<Character> getCartItems() {
-		return cartItems;
+	public List<CartItem> getCart() {
+		return cart;
 	}
 
 	/**
-	 * @param cartItems the cartItems to set
+	 * @param cart the cart to set
 	 */
-	public void setCartItems(List<Character> cartItems) {
-		this.cartItems = cartItems;
+	public void setCart(List<CartItem> cart) {
+		this.cart = cart;
 	}
+
 }
